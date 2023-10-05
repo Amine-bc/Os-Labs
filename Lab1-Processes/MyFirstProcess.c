@@ -4,6 +4,12 @@
 
 /*
 
+How to execute ?
+
+Run in the terminal:
+    
+    gcc -o MyFirstProcess MyFirstProcess.c -lm | ./MyFirstProcess
+
 Here is an example of the output of the program:
 
 
@@ -63,6 +69,29 @@ We know that this pid=549 is the systemd process.
 But why it's printed in the last line of the output?
 While it was the the program of the child process that printed it.
 
+Now I executed it another time and 549 has changed it is 556 now:
+
+----------------------------------------------------------------------
+
+$ gcc -o MyFirstProcess MyFirstProcess.c -lm | ./MyFirstProcess 
+Hello Sys!
+Parent process PID is: 31806
+P value after fork is: 31807
+My PID using getpid is: 31806
+My parent PID using getppid is: 31234
+P value after fork is: 0
+My PID using getpid is: 31807
+My parent PID using getppid is: 556
+
+----------------------------------------------------------------------
+
+After checking the process with this pid:
+
+$ ps aux | grep 556
+user        556  0.0  0.0  21508 12748 ?        Ss   17:17   0:00 /usr/lib/systemd/systemd --user
+
+I found that it is the systemd process of the new terminal I opened.
+Same as in the last time.
 
 */
 
