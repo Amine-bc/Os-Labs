@@ -1,2 +1,3 @@
 # Os-Labs
-This repository will be where I share all the operating system labs with detailed explainations.
+This repository contains all the operating system lab exercises, along with detailed explanations.
+(Will try to add them all, still not updated)
